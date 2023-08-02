@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Contact us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style2.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body>
+
+    
+    <div class="shadow-2xl lg:h-[150px]">
+        <header class="header">
+            <a href="index.html"><img class="max-lg:max-h-[80px]" src="img/logo.png" alt="logo"></a>
+            <div class="flex flex-col justify-between">
+                <div class="flex justify-between items-center self-end max-sm:hidden">
+                    <input type="text" class="search" placeholder="Search"/>
+                    <div class="w-[18px]">
+                        <a href="#"><img src="img/ico_search.svg" alt="search_icon"></a>
+                    </div>
+                </div>
+                <div class="lg:hidden w-10">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                      <span></span>
+                    </label>
+
+                    <ul class="menu__box">
+                        <li><a class="menu__item" href="index.html">Home</a></li>
+                        <li><a class="menu__item" href="#">Company Profile</a></li>
+                        <li><a class="menu__item" href="index3.html">Products</a></li>
+                        <li><a class="menu__item" href="#">Services</a></li>
+                        <li><a class="menu__item" href="#">R & D</a></li>
+                        <li><a class="menu__item" href="index5.html">Contact</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            </div>
+
+        </header>
+    </div>
+    <div>
+        <img src="/img/image 7.jpg" alt="mountains">
+    </div>
+    
+    <div class="pt-16 bg-[#F7F7F7] pb-10 px-10">
+        
+        <main class="container text-[#324950]">
+          
+            <h1 class="text-4xl font-bold">Contact us</h1>
+            <div class="mt-8 mb-8 text-[#57984C] text-2xl">*****</div>
+        
+            <table v-if="cart!=''">
+                <tr>
+                    <th class="act">
+                        Product name
+                    </th>
+                    <th class="act">Options</th>
+                </tr>
+                <tr v-for="c in cart">
+                    <td class="product">{{с.title}}</td>
+                    <td>
+                        <a href="#"  @click.prevent="removeFromCart(c.id)">X</a>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <form class="flex xl:space-x-[125px] max-xl:flex-col" method="post" action="#" @submit.prevent="makeOrder()" v-if="order==0">
+                    <div class="basis-[350px] space-y-5">
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="name">Name *</label>
+                            <input class="input-base"
+                                   id="name" type="text"v-model="contactFields.name" required>
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="company_name">Company Name</label>
+                            <input class="input-base"
+                                   id="company_name" type="text" v-model="contactFields.company_name">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="position">Position</label>
+                            <input class="input-base"
+                                   id="position" type="text" v-model="contactFields.position">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="city">City</label>
+                            <input class="input-base"
+                                   id="city" type="text" v-model="contactFields.city">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="country">Country</label>
+                            <input class="input-base"
+                                   id="country" type="text" v-model="contactFields.country">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="telephone">Telephone</label>
+                            <input class="input-base"
+                                   id="telephone" type="tel" v-model="contactFields.telephone">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="email" >Email *</label>
+                            <input class="input-base"
+                                   id="email" type="email" v-model="contactFields.email" required>
+                        </div>
+
+                    </div>
+                    
+                    <div class="space-y-5 grow max-xl:mt-5">
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="You are a">You are a</label>
+                            <select class="input-base"
+                                    id="You are a" name="You are a">
+                                <option value="1" v-model="contactFields.You are a">Seed producer</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="occupation_other">If other, please specify</label>
+                            <input class="input-base"
+                                   id="occupation_other" type="text">
+                        </div>
+                        <div class="flex flex-col space-y-2.5">
+                            <label class="text-17" for="interest_in">You are interested in</label>
+                            <textarea class="border-[#DADADA] h-[390px] border rounded-xl outline-none p-2.5"
+                                      id="interest_in"></textarea>
+                        </div>
+                        <div class="flex flex-col space-y-2.5 text-17">
+                            <label for="captcha">Please type this code</label>
+                            <div class="flex items-center justify-between pb-3">
+                                <img class="w-[100px] h-[27px]" src="/img/image 12.png" alt="captcha">
+                                <input class="input-base max-sm:max-w-[50%]"
+                                       id="captcha" type="text">
+                                <button class="max-sm:hidden text-white bg-[#57984C] rounded-full px-[8%] py-2.5">
+                                    Send Message
+                                </button>
+                            </div>
+                            <button class="sm:hidden text-white bg-[#57984C] rounded-full py-2.5">
+                                Send Message
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <div class="container mt-10 mb-10 text-center text-[#324950]">
+        <p class="text-[#57984C] text-2xl font-bold">Our Address</p>
+        <div class="green-line mx-auto"></div>
+        <p>AGRIDERA Seeds & Agriculture Ltd.</p>
+        <p>P.O Box 103,</p>
+        <p>Gedera 70750, Israel.</p>
+        <p>Telephone: <a class="text-[#57984C]" href="#">+972 8 944 9222</a></p>
+    </div>
+    <footer>
+        <div class="bg-[#2D3F45] px-10 py-5">
+            <div class="container flex justify-between items-center max-lg:flex-col gap-3">
+                <div>
+                    <ul class="links flex max-lg:flex-wrap justify-center">
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">MANAGEMENT</a></li>
+                        <li><a href="index3.html">PRODUCTS</a></li>
+                        <li><a href="#">R&D</a></li>
+                        <li><a href="#">LINK</a></li>
+                        <li><a href="#">SITEMAP</a></li>
+                        <li><a href="index5.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="flex social">
+                    <img src="/img/icons/social/Ico_in.svg" alt="linkedin">
+                    <img src="/img/icons/social/Ico_inst.svg" alt="inst">
+                    <img src="/img/icons/social/Ico_tube.svg" alt="youtube">
+                    <img src="/img/icons/social/Ico_tw.svg" alt="twitter">
+                    <img src="/img/icons/social/Ico_fb.svg" alt="facebook">
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#324950] text-center pt-3 pb-3">
+            <p class="text-sm text-[#B9B9B9]">AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+        </div>
+    </footer>
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>

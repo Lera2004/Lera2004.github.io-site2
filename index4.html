@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Kiwi one</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style2.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div class="shadow-2xl lg:h-[150px]">
+        <header class="header">
+            <a href="index.html"><img class="max-lg:max-h-[80px]" src="img/logo.png" alt="logo"></a>
+            <div class="flex flex-col justify-between">
+                <div class="flex justify-between items-center self-end max-sm:hidden">
+                    <input type="text" class="search" placeholder="Search"/>
+                    <div class="w-[18px]">
+                        <a href="#"><img src="/img/ico_search.svg" alt="search_icon"></a>
+                    </div>
+                </div>
+                <div class="lg:hidden w-10">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                      <span></span>
+                    </label>
+
+                    <ul class="menu__box">
+                        <li><a class="menu__item" href="index.html">Home</a></li>
+                        <li><a class="menu__item" href="#">Company Profile</a></li>
+                        <li><a class="menu__item" href="index3.html">Products</a></li>
+                        <li><a class="menu__item" href="#">Services</a></li>
+                        <li><a class="menu__item" href="#">R & D</a></li>
+                        <li><a class="menu__item" href="index5.html">Contact</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            </div>
+
+        </header>
+    </div>
+    <div class="container2">
+    <div class="mb-32 mx-10">
+        <div class="union-tomato">
+            <div class="container mt-5">
+                <div class="flex mb-5">
+                    <img src="img/Arrow 1.png" alt="arrow">
+                    <a href="index3.html"><p class="text-sm text-green-600 ml-3">Return to all Kiwis</p></a>
+                </div>
+                <div class="flex justify-between max-lg:flex-col gap-5">
+                    <div class="xl:w-1/2">
+                        <div>
+                            <h1 class="potato-h1 max-xl:text-5xl max-md:text-4xl text-[#324950]">{{product.title}}</h1>
+                            <h2 class="potato-h1 max-xl:text-5xl max-md:text-4xl text-[#57984C]">{{product.short_text}}</h2>
+                            <div class="mt-8 mb-8 text-[#57984C] text-[20px]">*****</div>
+                            <div class="flex items-center">
+                                <img src="/img/logo2.png" alt="tomato logo">
+                                <p class="text-[#CF2333] text-3xl max-md:text-xl font-bold ml-5">Very high yield and excellent fruits
+                                    quality!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="xl:w-1/2">
+                        <img :src="'img/'+product.image" alt="tomato">
+                    </div>
+                </div>
+                <div class="flex justify-between lg:items-end xl:-mt-8 max-lg:flex-col max-lg:mt-5">
+                    <div class="lg:w-1/2">
+                        <p class="potatoes-title">CHARACTERISTICS</p>
+                        <div class="green-line"></div>
+                        <p class="text-[#324950] text-17"><b>Resistance</b><br>
+                            HR: ToMV:0-2; Fol: 1,2; Ve/Vd;<br>
+                            IR: TYLCV
+                        </p>
+                    </div>
+                    <div class="max-lg:mt-5">
+                        <a class="mr-6 text-[#57984C] space-x-5 py-2.5 px-[30px] border-[#57984C] border-2 flex items-center rounded-[60px]" href="#" @click.prevent="addToCart(product.id);" v-if="btnVisible==0">
+                            <p class="font-bold text-[17px]">Add to cart</p>
+                            <a class="mr-6 text-[#57984C] space-x-5 py-2.5 px-[30px] border-[#57984C] border-2 flex items-center rounded-[60px]" href="index5.html"  v-if="btnVisible==1">
+                                <p class="font-bold text-[17px]">Go to cart</p> 
+                            </a>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex mt-8 max-lg:flex-col gap-5">
+                    <div class="lg:w-1/2">
+                        <p class="potatoes-title">Plant</p>
+                        <div class="green-line"></div>
+                        <div class="text-[#324950] text-17">
+                            <ul class="list-disc list-inside">
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Strong vigor that provides good leaf coverage.</span>
+                                </li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Very high productivity with good fruit setting.</span>
+                                </li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Early matured variety.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <p class="potatoes-title">Cycle</p>
+                        <div class="green-line"></div>
+                        <div class="text-[#324950] text-17">
+                            <ul class="list-disc list-inside">
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Spring</span></li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Fall</span></li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Winter</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex mt-8 max-lg:flex-col gap-5">
+                    <div class="lg:w-1/2">
+                        <p class="potatoes-title">Fruit</p>
+                        <div class="green-line"></div>
+                        <div class="text-[#324950] text-17">
+                            <ul class="list-disc list-inside">
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Long shelf life on plant and post harvest.</span>
+                                </li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Nice shiny attractive deep red color.</span>
+                                </li>
+                                <li class="text-[#57984C]"><span class="text-[#324950]">Average fruit size: 140 – 160 grams.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <p class="potatoes-title">Color</p>
+                        <div class="green-line"></div>
+                        <div class="text-[#324950] text-17">
+                            Gold<br>
+                            Green<br>
+                            Red
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="bg-[#2D3F45] px-10 py-5">
+            <div class="container flex justify-between items-center max-lg:flex-col gap-3">
+                <div>
+                    <ul class="links flex max-lg:flex-wrap justify-center">
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">MANAGEMENT</a></li>
+                        <li><a href="index3.html">PRODUCTS</a></li>
+                        <li><a href="#">R&D</a></li>
+                        <li><a href="#">LINK</a></li>
+                        <li><a href="#">SITEMAP</a></li>
+                        <li><a href="index5.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="flex social">
+                    <img src="/img/icons/social/Ico_in.svg" alt="linkedin">
+                    <img src="/img/icons/social/Ico_inst.svg" alt="inst">
+                    <img src="/img/icons/social/Ico_tube.svg" alt="youtube">
+                    <img src="/img/icons/social/Ico_tw.svg" alt="twitter">
+                    <img src="/img/icons/social/Ico_fb.svg" alt="facebook">
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#324950] text-center pt-3 pb-3">
+            <p class="text-sm text-[#B9B9B9]">AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+        </div>
+    </footer>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>

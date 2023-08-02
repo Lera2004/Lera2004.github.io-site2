@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Kiwi all</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style2.css" />
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html"><img class="max-lg:max-h-[80px]" src="img/logo.png" alt="logo"></a>
+        <div class="flex flex-col justify-between">
+            <div class="flex justify-between items-center self-end max-sm:hidden">
+                <input type="text" class="search" placeholder="Search"/>
+                <div class="w-[18px]">
+                    <a href="#"><img src="/img/ico_search.svg" alt="search_icon"></a>
+                </div>
+            </div>
+            <div class="lg:hidden w-10">
+              <input id="menu__toggle" type="checkbox" />
+              <label class="menu__btn" for="menu__toggle">
+                <span></span>
+              </label>
+        
+              <ul class="menu__box">
+                  <li><a class="menu__item" href="index.html">Home</a></li>
+                  <li><a class="menu__item" href="#">Company Profile</a></li>
+                  <li><a class="menu__item" href="index3.html">Products</a></li>
+                  <li><a class="menu__item" href="#">Services</a></li>
+                  <li><a class="menu__item" href="#">R & D</a></li>
+                  <li><a class="menu__item" href="index5.html">Contact</a></li>
+              </ul>
+
+          </div>
+      </div>
+        </div>
+
+    </header>
+    <div class="container2">
+    <div class="lg:mt-12">
+        <img src="/img/image_1.jpeg" alt="Kiwi">
+    </div>
+    <main class="bg-[#e9f5e6]">
+        <div class="container py-14 px-10">
+            <h1 class="text-5xl max-md:text-4xl h2">Agridera Fresh Market Kiwis Hybrids</h1>
+            <div class="my-5 text-[#57984C] text-[20px]">*****</div>
+            <p class="tomatoes-description">Agridera aims to be one of the world's leading companies in the breeding,
+                production,
+                and marketing of
+                Kiwi seeds. <b>We invest intensively in research and development to provide solutions to growers
+                    and
+                    consumers in numerous countries around the world.</b>
+                In particular, we breed improved disease-resistant cultivars adapted to different markets globally.</p>
+
+            <p class="tomatoes-description">Currently, emphasis is placed on combining Kiwi Yellow Leaf Curl Virus
+                (TYLCV) and Kiwi Spotted Wilt
+                Virus (TSWV) resistances with other soil borne diseases into superior Kiwi breeding lines and hybrids.
+                Moreover, comprehensive efforts are being undertaken to develop varieties resistance to TBRFV virus
+                (Kiwi Brown Rugose Fruit Virus).</p>
+
+            <p class="tomatoes-description">In terms of horticultural traits, breeding is for earliness, different fruit
+                sizes,
+                firmness, red fruit
+                color, flavor, crack resistance, shelf life, and high/low temperature fruit set. Combinations of quality
+                features and disease resistance are sought in a variety of types, namely round and elongated
+                shapes. </p>
+            <div class="green-vertical-line">
+                <p class="tomatoes-description">Agirdera Kiwi breeding programs are focusing on three main segments:
+                    Greenhouse Indeterminate
+                    Kiwis, Open-field Indeterminate Kiwis, and Bush Type Open-field Kiwis.</p>
+            </div>
+            <div class="white-tomatoes">
+                <div class="white-card">
+                    <h2 class="white-title">Greenhouse Kiwi Breeding Program</h2>
+                    <div class="border-b-2 border-green-900 mt-3"></div>
+                    <p class="white-description"><b>This breeding is aimed for the Spanish and Turkish markets.</b> For
+                        single and cluster picks, round
+                        fruit shape and resistances of TYLCV, TSWV, Nematodes and FORL (Fusarium oxysporum f.sp.
+                        radicis-lycopersici). Some hybrids may include more resistances, such as Cladosporium and
+                        Leveillula Taurica (Lv). </p>
+                </div>
+                <div class="white-card">
+                    <h2 class="white-title">Open-field Indeterminate Kiwis</h2>
+                    <div class="border-b-2 border-green-900 mt-3"></div>
+                    <p class="white-description"><b>This breeding is for Brazilian, Moroccan, and Turkish markets.</b>
+                        The main focus is on large round
+                        shape fruits (200 grams plus); and resistances of TYLCV, TSWV, Nematodes and FORL. In the near
+                        future, F3 (Fusarium oxysporum f.sp. lycopersici) will be included as basic resistance in our
+                        cultivars.</p>
+                </div>
+                <div class="white-card">
+                    <h2 class="white-title">Open-field Bush Type Kiwis</h2>
+                    <div class="border-b-2 border-green-900 mt-3"></div>
+                    <p class="white-description"><b>This breeding is for Mediterranean markets.</b> We breed round and
+                        elongated shapes, standard sizes
+                        (140- 180 grams), and beef sizes (min. 180 grams up to 300 grams and more). We combine the
+                        resistances of TYLCV, TSWV and Nematodes as basic resistances in our hybrids. However, some
+                        hybrids may include more resistances, such as Cladosporium and Leveillula Taurica (Lv).</p>
+                </div>
+            </div>
+            <div class="green-vertical-line mt-10 mb-10">
+                <p class="tomatoes-description"><b>Agridera operates through international and local distributers around
+                    the world.</b></p>
+            </div>
+            <article class="many-kiwi">
+                <section class="kiwi" v-if="products" v-for="p in products">
+                    <a :href="'index4.html#'+p.id"><img class="kiwi-img" :src="'img/'+p.image"></a>
+                    <h3><a :href="'index4.html#'+p.id">{{p.title}}</a></h3>
+                    <p>{{p.short_text}}</a></p>
+                </section>
+            </article>
+        </div>
+    </main>
+    <footer>
+        <div class="bg-[#2D3F45] px-10 py-5">
+            <div class="container flex justify-between items-center max-lg:flex-col gap-3">
+                <div>
+                    <ul class="links flex max-lg:flex-wrap justify-center">
+                        <li><a href="#">PROFILE</a></li>
+                        <li><a href="#">MANAGEMENT</a></li>
+                        <li><a href="index3.html">PRODUCTS</a></li>
+                        <li><a href="#">R&D</a></li>
+                        <li><a href="#">LINK</a></li>
+                        <li><a href="#">SITEMAP</a></li>
+                        <li><a href="index5.html">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="flex social">
+                  <img src="/img/icons/social/Ico_in.svg" alt="linkedin">
+                  <img src="/img/icons/social/Ico_inst.svg" alt="inst">
+                  <img src="/img/icons/social/Ico_tube.svg" alt="youtube">
+                  <img src="/img/icons/social/Ico_tw.svg" alt="twitter">
+                  <img src="/img/icons/social/Ico_fb.svg" alt="facebook">
+              </div>
+            </div>
+        </div>
+        <div class="bg-[#324950] text-center pt-3 pb-3">
+            <p class="text-sm text-[#B9B9B9]">AGRIDERA SEEDS & AGRICULTURE LTD. © 2020</p>
+        </div>
+    </footer>
+</div>
+<script src="/js/main.js"></script>
+</body>
+</html>
